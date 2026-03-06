@@ -1,10 +1,24 @@
-export interface TrendPoint {
+export interface DataPoint {
+  date: string;
   value: number;
+}
+
+export interface Metric {
+  value: number;
+  unit: string;
+  trend: "up" | "down";
+  history: DataPoint[];
+  forecast: DataPoint[];
+}
+
+export interface Metrics {
+  sales_forecast: Metric;
+  efficiency_rate: Metric;
 }
 
 export interface City {
   id: number;
-  name: string;
-  revenue: string;
-  growth: string;
+  city: string;
+  last_updated: string;
+  metrics: Metrics;
 }

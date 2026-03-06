@@ -1,10 +1,4 @@
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  Box,
-} from "@mui/material";
+import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import PublicIcon from "@mui/icons-material/Public";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -15,10 +9,11 @@ function Navbar() {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       elevation={0}
       sx={{
         background: "linear-gradient(to right, #0f2027, #203a43)",
+        zIndex: 999,
       }}
     >
       <Toolbar

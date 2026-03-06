@@ -17,80 +17,121 @@ function LandingPage() {
       sx={{
         position: "relative",
         height: "100vh",
-        overflow: "hidden", // prevent full page scroll
+        overflow: "hidden",
+        mt: 8,
       }}
     >
       <MapContainer />
-      <Box sx={{ padding: 6 }}>
-        <Box sx={{ display: "flex" }}>
+
+      <Box sx={{ position: "absolute", top: 0, width: "100%", p: 6 }}>
+        {/* Header */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
           <Typography variant="h3" sx={{ color: "white" }}>
             Hello User,
           </Typography>
+
           <Box
             sx={{
               display: "flex",
-              gap: 2,
-              mt: 2,
-              bgcolor: "blue",
               alignItems: "center",
+              gap: 1,
+              bgcolor: "#2563eb",
               px: 2,
               py: 1,
-              borderRadius: 1,
+              borderRadius: 2,
             }}
           >
             <InfoOutlineIcon sx={{ color: "white" }} />
-            <Typography variant="body1" sx={{ color: "white" }}>
-              There are 2 to action items.
+            <Typography sx={{ color: "white" }}>
+              There are 2 action items.
             </Typography>
           </Box>
         </Box>
 
-        <Box sx={{ display: "flex", gap: 4, overflow: "auto", mt: 4 }}>
+        {/* City Cards */}
+        <Box
+          sx={{
+            display: "flex",
+            gap: 4,
+            mt: 6,
+            overflowX: "auto",
+            // scrollbarWidth: "none",
+            // "&::-webkit-scrollbar": {
+            //   display: "none",
+            // }, // used if not mentioned globally
+          }}
+        >
           {cities.map((cityData) => (
             <Box
               key={cityData.id}
-              sx={{ border: "2px solid red" }}
               onClick={() => handleClick(cityData.id)}
+              sx={{
+                minWidth: 320,
+                p: 3,
+                borderRadius: 4,
+                cursor: "pointer",
+                backdropFilter: "blur(12px)",
+                background: "rgba(0,0,0,0.45)",
+                border: "1px solid rgba(255,255,255,0.2)",
+              }}
             >
-              <Typography variant="h5" sx={{ color: "white", mt: 4 }}>
-                City 1
+              {/* City Name */}
+              <Typography variant="h5" sx={{ color: "white", mb: 2 }}>
+                {cityData.city}
               </Typography>
 
-              <Box>
-                <Typography variant="body1" sx={{ color: "white" }}>
-                  Forecast
-                </Typography>
-                <Box>
-                  <Typography variant="body2" sx={{ color: "white" }}>
-                    45.7M
+              {/* Metrics */}
+              {Object.entries(cityData.metrics).map(([metricName, metric]) => (
+                <Box key={metricName} sx={{ mt: 3 }}>
+                  <Typography sx={{ color: "white", opacity: 0.8 }}>
+                    {metricName === "sales_forecast"
+                      ? "Forecast"
+                      : "Efficiency"}
                   </Typography>
-                  <Box>
-                    <MetricLineChart
-                      cityData={cityData}
-                      metricName="sales_forecast"
-                    />
-                  </Box>
-                  <Box>{/* arrow */}</Box>
-                </Box>
-              </Box>
 
-              <Box>
-                <Typography variant="body1" sx={{ color: "white" }}>
-                  Growth
-                </Typography>
-                <Box>
-                  <Typography variant="body2" sx={{ color: "white" }}>
-                    65%
-                  </Typography>
-                  <Box>
-                    <MetricLineChart
-                      cityData={cityData}
-                      metricName="efficiency_rate"
-                    />
+                  <Box
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      mt: 1,
+                      gap: 2,
+                    }}
+                  >
+                    {/* Value */}
+                    <Typography variant="h4" sx={{ color: "white" }}>
+                      {metric.value}
+                      {metric.unit}
+                    </Typography>
+
+                    {/* Chart */}
+                    <Box sx={{ flex: 1, ml: 2 }}>
+                      <MetricLineChart
+                        cityData={cityData}
+                        metricName={metricName}
+                      />
+                    </Box>
+
+                    {/* Trend */}
+                    <Typography
+                      sx={{
+                        fontSize: 24,
+                        color:
+                          metric.trend === "up"
+                            ? "#22c55e"
+                            : metric.trend === "down"
+                              ? "#ef4444"
+                              : "#eab308",
+                      }}
+                    >
+                      {metric.trend === "up"
+                        ? "↑"
+                        : metric.trend === "down"
+                          ? "↓"
+                          : "→"}
+                    </Typography>
                   </Box>
-                  <Box>{/* arrow */}</Box>
                 </Box>
-              </Box>
+              ))}
             </Box>
           ))}
         </Box>

@@ -1,9 +1,5 @@
 const CityWidget = () => {
-  return (
-    <div>
-      CityWidget
-    </div>
-  )
-}
+  return <div>CityWidget</div>;
+};
 
-export default CityWidget
+export default CityWidget;

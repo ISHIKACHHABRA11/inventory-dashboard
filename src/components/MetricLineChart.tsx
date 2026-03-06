@@ -1,4 +1,3 @@
-import React from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -95,31 +94,40 @@ export const MetricLineChart = ({ cityData, metricName }) => {
         grid: {
           display: false, // Hides vertical grid lines
         },
+        ticks: {
+          display: false, // hides x-axis labels
+        },
       },
       y: {
         grid: {
           color: "#e5e7eb",
           drawBorder: false,
+          display: false,
         },
         border: {
           dash: [3, 3], // Dashed horizontal grid lines
+        },
+        ticks: {
+          display: false, // hides x-axis labels
         },
       },
     },
     plugins: {
       legend: {
-        position: "top",
-        labels: {
-          usePointStyle: true,
-          boxWidth: 8,
-        },
+        display: false,
       },
     },
   };
 
   return (
-    <div style={{ width: "100%", height: 350 }}>
-      <Line data={data} />
+    <div
+      style={{
+        width: "100%",
+        height: 50,
+        position: "relative",
+      }}
+    >
+      <Line data={data} options={options} style={{ width: "100%" }} />
     </div>
   );
 };

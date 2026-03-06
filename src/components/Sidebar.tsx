@@ -5,25 +5,22 @@ import {
   Box,
   Typography,
   IconButton,
-  Tabs,
-  Tab,
   Card,
   CardContent,
   Chip,
   Stack,
 } from "@mui/material";
 
-import MenuIcon from "@mui/icons-material/Menu";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar({ stacks, setSelectedStack }) {
-  const [tab, setTab] = useState(0);
+  const navigate = useNavigate();
 
   return (
-    <Drawer variant="permanent" anchor="left">
+    <Drawer variant="permanent" anchor="left" sx={{ mt: 5 }}>
       <Box
         sx={{
           width: 320,
@@ -31,15 +28,14 @@ export default function Sidebar({ stacks, setSelectedStack }) {
           background: "linear-gradient(180deg,#0b2c35,#0d3b46)",
           color: "white",
           p: 2,
+          pt: 8,
+          zIndex: -1,
+          position: "relative",
         }}
       >
         {/* Header */}
         <Stack direction="row" spacing={1}>
-          <IconButton sx={{ color: "white" }}>
-            <MenuIcon />
-          </IconButton>
-
-          <IconButton sx={{ color: "white" }}>
+          <IconButton sx={{ color: "white" }} onClick={() => navigate(-1)}>
             <ArrowBackIcon />
           </IconButton>
         </Stack>
@@ -49,24 +45,8 @@ export default function Sidebar({ stacks, setSelectedStack }) {
           Sample Stack
         </Typography>
 
-        {/* Tabs */}
-        <Tabs
-          value={tab}
-          onChange={(e, v) => setTab(v)}
-          textColor="inherit"
-          indicatorColor="primary"
-          sx={{ mt: 2 }}
-        >
-          <Tab label="BACKLOG (238)" />
-          <Tab label="PENDING (0)" />
-          <Tab label="FINAL SIGN-OFF (0)" />
-        </Tabs>
-
-        {/* Filter */}
-        <Typography sx={{ mt: 2, mb: 1, fontSize: 14 }}>Filter</Typography>
-
         {/* Stack cards */}
-        <Box sx={{ overflowY: "auto", height: "70%" }}>
+        <Box sx={{ overflowY: "auto", height: "70%", mt: 2 }}>
           {stacks.map((stack) => (
             <Card
               key={stack.stackID}
@@ -105,8 +85,6 @@ export default function Sidebar({ stacks, setSelectedStack }) {
                     }
                     label="F'CAST ACC."
                   />
-
-                  <OpenInNewIcon fontSize="small" />
                 </Stack>
 
                 <Typography variant="body2">{stack.stackName}</Typography>
