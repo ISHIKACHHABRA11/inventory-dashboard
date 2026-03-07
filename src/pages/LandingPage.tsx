@@ -85,8 +85,8 @@ function LandingPage() {
                 <Box key={metricName} sx={{ mt: 3 }}>
                   <Typography sx={{ color: "white", opacity: 0.8 }}>
                     {metricName === "sales_forecast"
-                      ? "Forecast"
-                      : "Efficiency"}
+                      ? " Sales Forecast"
+                      : "Revenue Growth"}
                   </Typography>
 
                   <Box

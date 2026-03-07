@@ -8,35 +8,50 @@ export const cities = [
         value: 52.4,
         unit: "M",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 40.0 },
-          { date: "2025-11-01", value: 42.5 },
-          { date: "2025-12-01", value: 45.0 },
-          { date: "2026-01-01", value: 48.2 },
-          { date: "2026-02-01", value: 50.1 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 52.4 },
-          { date: "2026-04-01", value: 55.0 },
-          { date: "2026-05-01", value: 58.2 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
       efficiency_rate: {
         value: 88,
         unit: "%",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 82 },
-          { date: "2025-11-01", value: 83 },
-          { date: "2025-12-01", value: 84 },
-          { date: "2026-01-01", value: 86 },
-          { date: "2026-02-01", value: 87 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 88 },
-          { date: "2026-04-01", value: 89 },
-          { date: "2026-05-01", value: 90 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 218 },
+            { date: "2024-Q2", value: 230 },
+            { date: "2024-Q3", value: 240 },
+            { date: "2024-Q4", value: 250 },
+            { date: "2025-Q1", value: 265 },
+            { date: "2025-Q2", value: 275 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 290 },
+            { date: "2025-Q4", value: 300 },
+            { date: "2026-Q1", value: 310 },
+            { date: "2026-Q2", value: 320 },
+            { date: "2026-Q3", value: 335 },
+          ],
+        },
       },
     },
   },
@@ -49,35 +64,51 @@ export const cities = [
         value: 38.5,
         unit: "M",
         trend: "down",
-        history: [
-          { date: "2025-10-01", value: 45.0 },
-          { date: "2025-11-01", value: 44.0 },
-          { date: "2025-12-01", value: 42.0 },
-          { date: "2026-01-01", value: 40.0 },
-          { date: "2026-02-01", value: 39.0 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 38.5 },
-          { date: "2026-04-01", value: 37.5 },
-          { date: "2026-05-01", value: 36.0 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 445 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 405 },
+            { date: "2025-Q1", value: 420 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 545 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 540 },
+            { date: "2026-Q3", value: 518 },
+            { date: "2026-Q4", value: 575 },
+          ],
+        },
       },
       efficiency_rate: {
         value: 62,
         unit: "%",
         trend: "down",
-        history: [
-          { date: "2025-10-01", value: 75 },
-          { date: "2025-11-01", value: 72 },
-          { date: "2025-12-01", value: 68 },
-          { date: "2026-01-01", value: 65 },
-          { date: "2026-02-01", value: 63 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 62 },
-          { date: "2026-04-01", value: 60 },
-          { date: "2026-05-01", value: 58 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 405 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 500 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
     },
   },
@@ -90,35 +121,51 @@ export const cities = [
         value: 45.0,
         unit: "M",
         trend: "stable",
-        history: [
-          { date: "2025-10-01", value: 44.8 },
-          { date: "2025-11-01", value: 45.2 },
-          { date: "2025-12-01", value: 44.9 },
-          { date: "2026-01-01", value: 45.1 },
-          { date: "2026-02-01", value: 45.0 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 45.0 },
-          { date: "2026-04-01", value: 45.0 },
-          { date: "2026-05-01", value: 45.0 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 505 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 575 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 600 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 670 },
+          ],
+        },
       },
       efficiency_rate: {
         value: 78,
         unit: "%",
         trend: "stable",
-        history: [
-          { date: "2025-10-01", value: 79 },
-          { date: "2025-11-01", value: 77 },
-          { date: "2025-12-01", value: 78 },
-          { date: "2026-01-01", value: 78 },
-          { date: "2026-02-01", value: 78 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 78 },
-          { date: "2026-04-01", value: 78 },
-          { date: "2026-05-01", value: 78 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 505 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 550 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
     },
   },
@@ -131,35 +178,50 @@ export const cities = [
         value: 60.0,
         unit: "M",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 30.0 },
-          { date: "2025-11-01", value: 35.0 },
-          { date: "2025-12-01", value: 42.0 },
-          { date: "2026-01-01", value: 50.0 },
-          { date: "2026-02-01", value: 55.0 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 60.0 },
-          { date: "2026-04-01", value: 65.0 },
-          { date: "2026-05-01", value: 70.0 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
       efficiency_rate: {
-        value: 45,
+        value: 88,
         unit: "%",
-        trend: "down",
-        history: [
-          { date: "2025-10-01", value: 70 },
-          { date: "2025-11-01", value: 65 },
-          { date: "2025-12-01", value: 60 },
-          { date: "2026-01-01", value: 55 },
-          { date: "2026-02-01", value: 50 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 45 },
-          { date: "2026-04-01", value: 40 },
-          { date: "2026-05-01", value: 35 },
-        ],
+        trend: "up",
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 218 },
+            { date: "2024-Q2", value: 230 },
+            { date: "2024-Q3", value: 240 },
+            { date: "2024-Q4", value: 250 },
+            { date: "2025-Q1", value: 265 },
+            { date: "2025-Q2", value: 275 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 290 },
+            { date: "2025-Q4", value: 300 },
+            { date: "2026-Q1", value: 310 },
+            { date: "2026-Q2", value: 320 },
+            { date: "2026-Q3", value: 335 },
+          ],
+        },
       },
     },
   },
@@ -172,35 +234,51 @@ export const cities = [
         value: 25.0,
         unit: "M",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 10.0 },
-          { date: "2025-11-01", value: 12.0 },
-          { date: "2025-12-01", value: 15.0 },
-          { date: "2026-01-01", value: 18.0 },
-          { date: "2026-02-01", value: 22.0 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 25.0 },
-          { date: "2026-04-01", value: 28.0 },
-          { date: "2026-05-01", value: 30.0 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
       efficiency_rate: {
         value: 92,
         unit: "%",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 85 },
-          { date: "2025-11-01", value: 87 },
-          { date: "2025-12-01", value: 88 },
-          { date: "2026-01-01", value: 90 },
-          { date: "2026-02-01", value: 91 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 92 },
-          { date: "2026-04-01", value: 93 },
-          { date: "2026-05-01", value: 94 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
     },
   },
@@ -213,35 +291,50 @@ export const cities = [
         value: 12.5,
         unit: "M",
         trend: "down",
-        history: [
-          { date: "2025-10-01", value: 20.0 },
-          { date: "2025-11-01", value: 18.0 },
-          { date: "2025-12-01", value: 16.0 },
-          { date: "2026-01-01", value: 14.0 },
-          { date: "2026-02-01", value: 13.0 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 12.5 },
-          { date: "2026-04-01", value: 12.0 },
-          { date: "2026-05-01", value: 11.5 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
       efficiency_rate: {
-        value: 55,
+        value: 88,
         unit: "%",
-        trend: "stable",
-        history: [
-          { date: "2025-10-01", value: 54 },
-          { date: "2025-11-01", value: 56 },
-          { date: "2025-12-01", value: 55 },
-          { date: "2026-01-01", value: 55 },
-          { date: "2026-02-01", value: 55 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 55 },
-          { date: "2026-04-01", value: 55 },
-          { date: "2026-05-01", value: 55 },
-        ],
+        trend: "up",
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 218 },
+            { date: "2024-Q2", value: 230 },
+            { date: "2024-Q3", value: 240 },
+            { date: "2024-Q4", value: 250 },
+            { date: "2025-Q1", value: 265 },
+            { date: "2025-Q2", value: 275 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 290 },
+            { date: "2025-Q4", value: 300 },
+            { date: "2026-Q1", value: 310 },
+            { date: "2026-Q2", value: 320 },
+            { date: "2026-Q3", value: 335 },
+          ],
+        },
       },
     },
   },
@@ -254,35 +347,51 @@ export const cities = [
         value: 35.0,
         unit: "M",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 30.0 },
-          { date: "2025-11-01", value: 31.0 },
-          { date: "2025-12-01", value: 32.0 },
-          { date: "2026-01-01", value: 33.0 },
-          { date: "2026-02-01", value: 34.0 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 35.0 },
-          { date: "2026-04-01", value: 36.0 },
-          { date: "2026-05-01", value: 37.0 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
       efficiency_rate: {
         value: 40,
         unit: "%",
         trend: "down",
-        history: [
-          { date: "2025-10-01", value: 60 },
-          { date: "2025-11-01", value: 55 },
-          { date: "2025-12-01", value: 50 },
-          { date: "2026-01-01", value: 45 },
-          { date: "2026-02-01", value: 42 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 40 },
-          { date: "2026-04-01", value: 38 },
-          { date: "2026-05-01", value: 35 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
     },
   },
@@ -295,35 +404,50 @@ export const cities = [
         value: 42.0,
         unit: "M",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 38.0 },
-          { date: "2025-11-01", value: 39.0 },
-          { date: "2025-12-01", value: 39.5 },
-          { date: "2026-01-01", value: 40.5 },
-          { date: "2026-02-01", value: 41.5 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 42.0 },
-          { date: "2026-04-01", value: 42.5 },
-          { date: "2026-05-01", value: 43.0 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 405 },
+            { date: "2024-Q2", value: 418 },
+            { date: "2024-Q3", value: 430 },
+            { date: "2024-Q4", value: 445 },
+            { date: "2025-Q1", value: 460 },
+            { date: "2025-Q2", value: 475 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
+            { date: "2025-Q4", value: 520 },
+            { date: "2026-Q1", value: 535 },
+            { date: "2026-Q2", value: 548 },
+            { date: "2026-Q3", value: 560 },
+            { date: "2026-Q4", value: 570 },
+          ],
+        },
       },
       efficiency_rate: {
-        value: 85,
+        value: 88,
         unit: "%",
         trend: "up",
-        history: [
-          { date: "2025-10-01", value: 70 },
-          { date: "2025-11-01", value: 72 },
-          { date: "2025-12-01", value: 75 },
-          { date: "2026-01-01", value: 78 },
-          { date: "2026-02-01", value: 82 },
-        ],
-        forecast: [
-          { date: "2026-03-01", value: 85 },
-          { date: "2026-04-01", value: 88 },
-          { date: "2026-05-01", value: 90 },
-        ],
+        historical: {
+          aiForecast: [
+            { date: "2024-Q1", value: 218 },
+            { date: "2024-Q2", value: 230 },
+            { date: "2024-Q3", value: 240 },
+            { date: "2024-Q4", value: 250 },
+            { date: "2025-Q1", value: 265 },
+            { date: "2025-Q2", value: 275 },
+          ],
+        },
+        forecast: {
+          aiForecast: [
+            { date: "2025-Q3", value: 290 },
+            { date: "2025-Q4", value: 300 },
+            { date: "2026-Q1", value: 310 },
+            { date: "2026-Q2", value: 320 },
+            { date: "2026-Q3", value: 335 },
+          ],
+        },
       },
     },
   },
