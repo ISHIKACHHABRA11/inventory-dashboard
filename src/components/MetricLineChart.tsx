@@ -1,6 +1,12 @@
 import { Line } from "react-chartjs-2";
+import type { City, Metrics } from "../types/cities";
 
-export const MetricLineChart = ({ cityData, metricName }) => {
+export interface MetricLineChartProps {
+  cityData: City;
+  metricName: keyof Metrics;
+}
+
+export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) => {
   const metric = cityData.metrics[metricName];
 
   // extract correct arrays from new structure
@@ -62,7 +68,7 @@ export const MetricLineChart = ({ cityData, metricName }) => {
     responsive: true,
     maintainAspectRatio: false,
     interaction: {
-      mode: "index",
+      mode: "index" as const,
       intersect: false,
     },
     scales: {

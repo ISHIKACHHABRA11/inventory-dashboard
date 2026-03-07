@@ -1,4 +1,6 @@
-export const stackDetailsMock = {
+import type { StackChartData } from "../types/cities";
+
+export const stackDetailsMock: Record<string, Record<string, StackChartData>> = {
   1: {
     s1: {
       stackID: "s1",

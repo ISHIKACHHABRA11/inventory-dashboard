@@ -1,5 +1,3 @@
-// Sidebar.jsx
-import { useState } from "react";
 import {
   Drawer,
   Box,
@@ -10,13 +8,18 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useNavigate } from "react-router-dom";
+import type { SidebarStackItem } from "../types/cities";
 
-export default function Sidebar({ stacks, setSelectedStack }) {
+export interface SidebarProps {
+  stacks: SidebarStackItem[];
+  setSelectedStack: (stack: SidebarStackItem) => void;
+}
+
+export default function Sidebar({ stacks, setSelectedStack }: SidebarProps) {
   const navigate = useNavigate();
 
   return (

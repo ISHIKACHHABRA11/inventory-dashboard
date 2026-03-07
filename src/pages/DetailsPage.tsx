@@ -85,26 +85,26 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
+import type { SidebarStackItem, StackChartData } from "../types/cities";
 
 export default function DetailsPage() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
-  const fetchedData = sidebarData[id] || [];
-  const [selectedStack, setSelectedStack] = useState(fetchedData[0] || null);
+  const fetchedData = id ? (sidebarData[id] ?? []) : [];
+  const [selectedStack, setSelectedStack] = useState<SidebarStackItem | null>(
+    fetchedData[0] ?? null
+  );
 
-  const stackChartData =
-    stackDetailsMock?.[id]?.[selectedStack?.stackID] || null;
-
-  console.log("City ID from URL params is", id);
-  console.log("Fetched data for city id", id, "is", fetchedData);
-  console.log("Selected stack is", selectedStack);
-  console.log("Stack chart data", stackChartData);
+  const stackChartData: StackChartData | null =
+    id && selectedStack
+      ? (stackDetailsMock[id]?.[selectedStack.stackID] ?? null)
+      : null;
 
   // TABLE DATA
-  let quarters = [];
-  let consumption = [];
-  let aiForecast = [];
-  let finalForecast = [];
+  let quarters: string[] = [];
+  let consumption: (number | string)[] = [];
+  let aiForecast: number[] = [];
+  let finalForecast: number[] = [];
 
   if (stackChartData) {
     quarters = [
@@ -179,6 +179,20 @@ export default function DetailsPage() {
             <Box sx={{ px: 3, bgcolor: "#144E5E" }}>
               <Table>
                 <TableBody>
+                  {/* Quarter headers */}
+                  <TableRow>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Quarter
+                    </TableCell>
+                    {quarters.map((q, i) => (
+                      <TableCell
+                        key={`quarter-${q}-${i}`}
+                        sx={{ color: "#cfd8dc", textAlign: "right" }}
+                      >
+                        {q}
+                      </TableCell>
+                    ))}
+                  </TableRow>
                   {/* AI Forecast */}
                   <TableRow>
                     <TableCell sx={{ color: "white", fontWeight: "bold" }}>

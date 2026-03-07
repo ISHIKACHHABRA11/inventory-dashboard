@@ -4,11 +4,12 @@ import InfoOutlineIcon from "@mui/icons-material/InfoOutline";
 import { MetricLineChart } from "../components/MetricLineChart";
 import { cities } from "../data/mockCities";
 import { useNavigate } from "react-router-dom";
+import type { Metrics } from "../types/cities";
 
 function LandingPage() {
   const navigate = useNavigate();
 
-  const handleClick = (id: Number) => {
+  const handleClick = (id: number) => {
     navigate(`/city/${id}`);
   };
 
@@ -107,7 +108,7 @@ function LandingPage() {
                     <Box sx={{ flex: 1, ml: 2 }}>
                       <MetricLineChart
                         cityData={cityData}
-                        metricName={metricName}
+                        metricName={metricName as keyof Metrics}
                       />
                     </Box>
 

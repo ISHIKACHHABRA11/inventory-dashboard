@@ -1,4 +1,6 @@
-export const sidebarData = {
+import type { SidebarStackItem } from "../types/cities";
+
+export const sidebarData: Record<string, SidebarStackItem[]> = {
   1: [
     {
       stackID: "s1",
