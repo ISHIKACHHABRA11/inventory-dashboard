@@ -13,7 +13,7 @@ function Navbar() {
       elevation={0}
       sx={{
         background: "linear-gradient(to right, #0f2027, #203a43)",
-        zIndex: 999,
+        zIndex: 1300,
       }}
     >
       <Toolbar
