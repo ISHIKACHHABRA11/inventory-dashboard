@@ -155,26 +155,67 @@ export default function LineChart({ stack }: LineChartProps) {
     },
   };
 
+  const toggleItems = [
+    {
+      label: "Consumption",
+      color: "#8bcdf6",
+      checked: showConsumption,
+      onToggle: () => setShowConsumption(!showConsumption),
+    },
+    {
+      label: "AI Forecast",
+      color: "#1eea75",
+      checked: showAI,
+      onToggle: () => setShowAI(!showAI),
+    },
+    {
+      label: "Final Forecast",
+      color: "#ffe600",
+      checked: showFinal,
+      onToggle: () => setShowFinal(!showFinal),
+    },
+    {
+      label: "Prev Quarter",
+      color: "#f5c6c6",
+      checked: showPrevFinal,
+      onToggle: () => setShowPrevFinal(!showPrevFinal),
+    },
+  ];
+
   return (
     <Box sx={{ background: "#000", p: 3, borderRadius: 2 }}>
-      <Box sx={{ display: "flex", gap: 3, mb: 2 }}>
-        <Typography sx={{ color: "white" }}>Consumption</Typography>
-        <Switch
-          checked={showConsumption}
-          onChange={() => setShowConsumption(!showConsumption)}
-        />
-
-        <Typography sx={{ color: "white" }}>AI Forecast</Typography>
-        <Switch checked={showAI} onChange={() => setShowAI(!showAI)} />
-
-        <Typography sx={{ color: "white" }}>Final Forecast</Typography>
-        <Switch checked={showFinal} onChange={() => setShowFinal(!showFinal)} />
-
-        <Typography sx={{ color: "white" }}>Prev Quarter</Typography>
-        <Switch
-          checked={showPrevFinal}
-          onChange={() => setShowPrevFinal(!showPrevFinal)}
-        />
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 8,
+          mb: 2,
+          alignItems: "center",
+        }}
+      >
+        {toggleItems.map((item) => (
+          <Box
+            key={item.label}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
+            <Box
+              sx={{
+                width: 4,
+                height: 20,
+                borderRadius: 1,
+                bgcolor: item.color,
+                flexShrink: 0,
+              }}
+              aria-hidden
+            />
+            <Typography sx={{ color: "white" }}>{item.label}</Typography>
+            <Switch checked={item.checked} onChange={item.onToggle} />
+          </Box>
+        ))}
       </Box>
 
       <Line data={data} options={options} />
