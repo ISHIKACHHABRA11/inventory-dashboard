@@ -23,9 +23,17 @@ body {
   -ms-overflow-style: none;
 }
 
+/* Map: marker icons (circle points) – subtle pulse, no color filter so green/red both show */
 .city-marker {
-  animation: pulse 2s infinite;
-  filter: drop-shadow(0 0 8px #22c55e);
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Map: tooltip dark theme to match dashboard */
+.map-tooltip-theme.leaflet-tooltip {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 @keyframes pulse {

@@ -24,9 +24,10 @@ function LandingPage() {
     >
       <MapContainer />
 
-      <Box sx={{ position: "absolute", top: 0, width: "100%", p: 6 }}>
+      {/* Overlay above map; pointer-events none so map gets zoom/pan; header & cards have pointer-events auto */}
+      <Box sx={{ position: "absolute", top: 0, width: "100%", p: 6, zIndex: 1, pointerEvents: "none" }}>
         {/* Header */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 3 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 3, pointerEvents: "auto" }}>
           <Typography variant="h3" sx={{ color: "white" }}>
             Hello User,
           </Typography>
@@ -56,6 +57,7 @@ function LandingPage() {
             gap: 4,
             mt: 6,
             overflowX: "auto",
+            pointerEvents: "auto",
             // scrollbarWidth: "none",
             // "&::-webkit-scrollbar": {
             //   display: "none",
