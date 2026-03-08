@@ -1,5 +1,81 @@
+// import { useParams } from "react-router-dom";
+// import Sidebar from "../components/Sidebar";
+// import { stackDetailsMock } from "../data/stackDetailsMock";
+// import { sidebarData } from "../data/mockSidebarData";
+// import { useState } from "react";
+// import LineChart from "../components/LineChart";
+// import { Box, Typography } from "@mui/material";
+
+// export default function DetailsPage() {
+//   const { id } = useParams();
+
+//   const fetchedData = sidebarData[id] || [];
+
+//   const [selectedStack, setSelectedStack] = useState(fetchedData[0] || null);
+
+//   const stackChartData =
+//     stackDetailsMock?.[id]?.[selectedStack?.stackID] || null;
+
+//   console.log("City ID from URL params is", id);
+//   console.log("Fetched data for city id", id, "is", fetchedData);
+//   console.log("Selected stack is", selectedStack);
+//   console.log("Stack chart data", stackChartData);
+
+//   return (
+//     <>
+//       {/* Sidebar */}
+//       <Sidebar stacks={fetchedData} setSelectedStack={setSelectedStack} />
+
+//       {/* Main dashboard */}
+//       <div style={{ marginLeft: 320 }}>
+//         {selectedStack && (
+//           <>
+//             <Box sx={{ bgcolor: "#144E5E", p: 2 }}>
+//               <Box
+//                 sx={{
+//                   display: "flex",
+//                   justifyContent: "space-between",
+//                   alignItems: "center",
+//                 }}
+//               >
+//                 <Typography sx={{ color: "white" }}>
+//                   {selectedStack.stackName}
+//                 </Typography>
+//                 <Typography sx={{ color: "white" }}>
+//                   Stack Id : {selectedStack.stackID}
+//                 </Typography>
+//                 <Box
+//                   sx={{
+//                     bgcolor: "#0D3B46",
+//                     p: 1,
+//                     borderRadius: 2,
+//                     display: "flex",
+//                     gap: 4,
+//                   }}
+//                 >
+//                   <Typography sx={{ color: "white" }}>
+//                     Forecast : {stackChartData.forecastValue}
+//                   </Typography>
+//                   <Typography sx={{ color: "white" }}>
+//                     Historical : {stackChartData.historicalValue}
+//                   </Typography>
+//                 </Box>
+//               </Box>
+//             </Box>
+
+//             {/* Line Chart */}
+//             {stackChartData && <LineChart stack={stackChartData} />}
+//           </>
+//         )}
+//       </div>
+//     </>
+//   );
+// }
 import { useParams } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import Sidebar, {
+  SIDEBAR_WIDTH_COLLAPSED,
+  SIDEBAR_WIDTH_EXPANDED,
+} from "../components/Sidebar";
 import { stackDetailsMock } from "../data/stackDetailsMock";
 import { sidebarData } from "../data/mockSidebarData";
 import { useState } from "react";
@@ -19,8 +95,9 @@ export default function DetailsPage() {
 
   const fetchedData = id ? (sidebarData[id] ?? []) : [];
   const [selectedStack, setSelectedStack] = useState<SidebarStackItem | null>(
-    fetchedData[0] ?? null,
+    fetchedData[0] ?? null
   );
+  const [sidebarExpanded, setSidebarExpanded] = useState(true);
 
   const stackChartData: StackChartData | null =
     id && selectedStack
@@ -55,11 +132,18 @@ export default function DetailsPage() {
     ];
   }
 
+  const sidebarWidth = sidebarExpanded ? SIDEBAR_WIDTH_EXPANDED : SIDEBAR_WIDTH_COLLAPSED;
+
   return (
     <div style={{ marginTop: "64px" }}>
-      <Sidebar stacks={fetchedData} setSelectedStack={setSelectedStack} />
+      <Sidebar
+        stacks={fetchedData}
+        setSelectedStack={setSelectedStack}
+        expanded={sidebarExpanded}
+        onExpandedChange={setSidebarExpanded}
+      />
 
-      <div style={{ marginLeft: 320 }}>
+      <div style={{ marginLeft: sidebarWidth, transition: "margin-left 0.25s ease-in-out" }}>
         {selectedStack && stackChartData && (
           <>
             {/* HEADER */}
@@ -106,6 +190,20 @@ export default function DetailsPage() {
             <Box sx={{ px: 3, bgcolor: "#144E5E" }}>
               <Table>
                 <TableBody>
+                  {/* Quarter headers */}
+                  <TableRow>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Quarter
+                    </TableCell>
+                    {quarters.map((q, i) => (
+                      <TableCell
+                        key={`quarter-${q}-${i}`}
+                        sx={{ color: "#cfd8dc", textAlign: "right" }}
+                      >
+                        {q}
+                      </TableCell>
+                    ))}
+                  </TableRow>
                   {/* AI Forecast */}
                   <TableRow>
                     <TableCell sx={{ color: "white", fontWeight: "bold" }}>
