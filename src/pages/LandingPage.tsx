@@ -1,4 +1,6 @@
 import { Box, Typography } from "@mui/material";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import MapContainer from "../components/MapContainer";
 import InfoOutlineIcon from "@mui/icons-material/InfoOutline";
 import { MetricLineChart } from "../components/MetricLineChart";
@@ -114,24 +116,23 @@ function LandingPage() {
                       />
                     </Box>
 
-                    {/* Trend */}
-                    <Typography
+                    {/* Trend: up/down arrows by metric.trend */}
+                    <Box
                       sx={{
-                        fontSize: 24,
                         color:
                           metric.trend === "up"
                             ? "#22c55e"
-                            : metric.trend === "down"
-                              ? "#ef4444"
-                              : "#eab308",
+                            : "#ef4444",
+                        display: "flex",
+                        alignItems: "center",
                       }}
                     >
-                      {metric.trend === "up"
-                        ? "↑"
-                        : metric.trend === "down"
-                          ? "↓"
-                          : "→"}
-                    </Typography>
+                      {metric.trend === "up" ? (
+                        <ArrowUpwardIcon sx={{ fontSize: 28 }} />
+                      ) : (
+                        <ArrowDownwardIcon sx={{ fontSize: 28 }} />
+                      )}
+                    </Box>
                   </Box>
                 </Box>
               ))}

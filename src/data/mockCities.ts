@@ -122,7 +122,7 @@ export const cities: City[] = [
       sales_forecast: {
         value: 45.0,
         unit: "M",
-        trend: "stable",
+        trend: "up",
         historical: {
           aiForecast: [
             { date: "2024-Q1", value: 505 },
@@ -147,7 +147,7 @@ export const cities: City[] = [
       efficiency_rate: {
         value: 78,
         unit: "%",
-        trend: "stable",
+        trend: "up",
         historical: {
           aiForecast: [
             { date: "2024-Q1", value: 505 },

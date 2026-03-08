@@ -14,7 +14,7 @@ export interface MetricForecast {
 export interface Metric {
   value: number;
   unit: string;
-  trend: "up" | "down" | "stable";
+  trend: "up" | "down";
   historical: MetricHistorical;
   forecast: MetricForecast;
 }

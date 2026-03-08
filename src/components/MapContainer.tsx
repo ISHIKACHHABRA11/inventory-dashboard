@@ -51,7 +51,7 @@ function createCircleIcon(color: string) {
 // ---------------------------------------------------------------------------
 const MAP_CITIES: { id: number; position: [number, number] }[] = [
   { id: 1, position: [19.076, 72.8777] }, // Mumbai
-  { id: 2, position: [28.7041, 77.1025] }, // Delhi
+  { id: 2, position: [28.35, 77.12] }, // Delhi
 ];
 
 // Helper: get city from mock data by id
@@ -115,19 +115,27 @@ function CityMarker({
         className="map-tooltip-theme"
         opacity={1}
       >
-        <div style={{
-          padding: "8px 10px",
-          minWidth: 160,
-          background: "rgba(11, 30, 38, 0.95)",
-          color: "#e2e8f0",
-          borderRadius: 8,
-          border: "1px solid rgba(255,255,255,0.2)",
-          fontSize: 13,
-        }}>
+        <div
+          style={{
+            padding: "8px 10px",
+            minWidth: 160,
+            background: "rgba(11, 30, 38, 0.95)",
+            color: "#e2e8f0",
+            borderRadius: 8,
+            border: "1px solid rgba(255,255,255,0.2)",
+            fontSize: 13,
+          }}
+        >
           <strong style={{ color: "#fff", fontSize: 14 }}>{city.city}</strong>
           <div style={{ marginTop: 8, opacity: 0.95 }}>
-            <div>Sales: {sales.value}{sales.unit} {sales.trend === "up" ? "↑" : sales.trend === "down" ? "↓" : "→"}</div>
-            <div>Efficiency: {efficiency.value}{efficiency.unit} {efficiency.trend === "up" ? "↑" : efficiency.trend === "down" ? "↓" : "→"}</div>
+            <div>
+              Sales: {sales.value}
+              {sales.unit} {sales.trend === "up" ? "↑" : "↓"}
+            </div>
+            <div>
+              Efficiency: {efficiency.value}
+              {efficiency.unit} {efficiency.trend === "up" ? "↑" : "↓"}
+            </div>
           </div>
         </div>
       </Tooltip>
