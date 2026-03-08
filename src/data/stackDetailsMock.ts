@@ -1,6 +1,9 @@
 import type { StackChartData } from "../types/cities";
 
-export const stackDetailsMock: Record<string, Record<string, StackChartData>> = {
+export const stackDetailsMock: Record<
+  string,
+  Record<string, StackChartData>
+> = {
   1: {
     s1: {
       stackID: "s1",
@@ -39,6 +42,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -122,6 +126,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -187,6 +192,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -252,6 +258,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -317,6 +324,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -382,6 +390,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -447,6 +456,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -512,6 +522,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -579,6 +590,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -644,6 +656,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -709,6 +722,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -774,6 +788,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -839,6 +854,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -904,6 +920,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -969,6 +986,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1034,6 +1052,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1082,8 +1101,18 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
       },
 
       forecast: {
+        previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
+          { date: "2025-Q3", value: 495 },
+          { date: "2025-Q4", value: 510 },
+          { date: "2026-Q1", value: 520 },
+          { date: "2026-Q2", value: 535 },
+          { date: "2026-Q3", value: 545 },
+          { date: "2026-Q4", value: 570 },
+        ],
+
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
+          { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
           { date: "2025-Q4", value: 520 },
           { date: "2026-Q1", value: 535 },
           { date: "2026-Q2", value: 548 },
@@ -1097,15 +1126,6 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
           { date: "2026-Q1", value: 540 },
           { date: "2026-Q2", value: 555 },
           { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
-        ],
-
-        previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
           { date: "2026-Q4", value: 570 },
         ],
       },
@@ -1148,30 +1168,31 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
-          { date: "2025-Q4", value: 520 },
-          { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
-          { date: "2026-Q3", value: 560 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 290 },
+          { date: "2025-Q4", value: 300 },
+          { date: "2026-Q1", value: 310 },
+          { date: "2026-Q2", value: 320 },
+          { date: "2026-Q3", value: 335 },
+          { date: "2026-Q4", value: 340 },
         ],
 
         finalForecast: [
-          { date: "2025-Q3", value: 505 },
-          { date: "2025-Q4", value: 525 },
-          { date: "2026-Q1", value: 540 },
-          { date: "2026-Q2", value: 555 },
-          { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 295 },
+          { date: "2025-Q4", value: 305 },
+          { date: "2026-Q1", value: 315 },
+          { date: "2026-Q2", value: 330 },
+          { date: "2026-Q3", value: 345 },
+          { date: "2026-Q4", value: 370 },
         ],
 
         previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q2", value: 278 },
+          { date: "2025-Q3", value: 285 },
+          { date: "2025-Q4", value: 295 },
+          { date: "2026-Q1", value: 305 },
+          { date: "2026-Q2", value: 315 },
+          { date: "2026-Q3", value: 325 },
+          { date: "2026-Q4", value: 370 },
         ],
       },
     },
@@ -1231,6 +1252,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1278,30 +1300,31 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
-          { date: "2025-Q4", value: 520 },
-          { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
-          { date: "2026-Q3", value: 560 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 290 },
+          { date: "2025-Q4", value: 300 },
+          { date: "2026-Q1", value: 310 },
+          { date: "2026-Q2", value: 320 },
+          { date: "2026-Q3", value: 335 },
+          { date: "2026-Q4", value: 340 },
         ],
 
         finalForecast: [
-          { date: "2025-Q3", value: 505 },
-          { date: "2025-Q4", value: 525 },
-          { date: "2026-Q1", value: 540 },
-          { date: "2026-Q2", value: 555 },
-          { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 295 },
+          { date: "2025-Q4", value: 305 },
+          { date: "2026-Q1", value: 315 },
+          { date: "2026-Q2", value: 330 },
+          { date: "2026-Q3", value: 345 },
+          { date: "2026-Q4", value: 370 },
         ],
 
         previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q2", value: 278 },
+          { date: "2025-Q3", value: 285 },
+          { date: "2025-Q4", value: 295 },
+          { date: "2026-Q1", value: 305 },
+          { date: "2026-Q2", value: 315 },
+          { date: "2026-Q3", value: 325 },
+          { date: "2026-Q4", value: 370 },
         ],
       },
     },
@@ -1361,6 +1384,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1408,30 +1432,31 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
-          { date: "2025-Q4", value: 520 },
-          { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
-          { date: "2026-Q3", value: 560 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 290 },
+          { date: "2025-Q4", value: 300 },
+          { date: "2026-Q1", value: 310 },
+          { date: "2026-Q2", value: 320 },
+          { date: "2026-Q3", value: 335 },
+          { date: "2026-Q4", value: 350 },
         ],
 
         finalForecast: [
-          { date: "2025-Q3", value: 505 },
-          { date: "2025-Q4", value: 525 },
-          { date: "2026-Q1", value: 540 },
-          { date: "2026-Q2", value: 555 },
-          { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 295 },
+          { date: "2025-Q4", value: 305 },
+          { date: "2026-Q1", value: 315 },
+          { date: "2026-Q2", value: 330 },
+          { date: "2026-Q3", value: 345 },
+          { date: "2026-Q4", value: 370 },
         ],
 
         previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q2", value: 278 },
+          { date: "2025-Q3", value: 285 },
+          { date: "2025-Q4", value: 295 },
+          { date: "2026-Q1", value: 305 },
+          { date: "2026-Q2", value: 315 },
+          { date: "2026-Q3", value: 325 },
+          { date: "2026-Q4", value: 370 },
         ],
       },
     },
@@ -1473,30 +1498,31 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
-          { date: "2025-Q4", value: 520 },
-          { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
-          { date: "2026-Q3", value: 560 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 290 },
+          { date: "2025-Q4", value: 300 },
+          { date: "2026-Q1", value: 310 },
+          { date: "2026-Q2", value: 320 },
+          { date: "2026-Q3", value: 335 },
+          { date: "2026-Q4", value: 340 },
         ],
 
         finalForecast: [
-          { date: "2025-Q3", value: 505 },
-          { date: "2025-Q4", value: 525 },
-          { date: "2026-Q1", value: 540 },
-          { date: "2026-Q2", value: 555 },
-          { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 295 },
+          { date: "2025-Q4", value: 305 },
+          { date: "2026-Q1", value: 315 },
+          { date: "2026-Q2", value: 330 },
+          { date: "2026-Q3", value: 345 },
+          { date: "2026-Q4", value: 390 },
         ],
 
         previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q2", value: 278 },
+          { date: "2025-Q3", value: 285 },
+          { date: "2025-Q4", value: 295 },
+          { date: "2026-Q1", value: 305 },
+          { date: "2026-Q2", value: 315 },
+          { date: "2026-Q3", value: 325 },
+          { date: "2026-Q4", value: 390 },
         ],
       },
     },
@@ -1556,6 +1582,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1588,7 +1615,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
           { date: "2024-Q1", value: 405 },
           { date: "2024-Q2", value: 418 },
           { date: "2024-Q3", value: 430 },
-          { date: "2024-Q4", value: 445 },
+          { date: "2024-Q4", value: 405 },
           { date: "2025-Q1", value: 460 },
           { date: "2025-Q2", value: 475 },
         ],
@@ -1605,10 +1632,10 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
+          { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
           { date: "2025-Q4", value: 520 },
           { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
+          { date: "2026-Q2", value: 500 },
           { date: "2026-Q3", value: 560 },
           { date: "2026-Q4", value: 570 },
         ],
@@ -1623,6 +1650,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1635,7 +1663,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
     s2: {
       stackID: "s2",
-      stackName: "Revenue Growth",
+      stackName: "Retail Supply Stack",
       forecastValue: 310,
       historicalValue: 280,
 
@@ -1670,30 +1698,31 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
-          { date: "2025-Q4", value: 520 },
-          { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
-          { date: "2026-Q3", value: 560 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 290 },
+          { date: "2025-Q4", value: 300 },
+          { date: "2026-Q1", value: 310 },
+          { date: "2026-Q2", value: 320 },
+          { date: "2026-Q3", value: 335 },
+          { date: "2026-Q4", value: 370 },
         ],
 
         finalForecast: [
-          { date: "2025-Q3", value: 505 },
-          { date: "2025-Q4", value: 525 },
-          { date: "2026-Q1", value: 540 },
-          { date: "2026-Q2", value: 555 },
-          { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q3", value: 295 },
+          { date: "2025-Q4", value: 305 },
+          { date: "2026-Q1", value: 315 },
+          { date: "2026-Q2", value: 330 },
+          { date: "2026-Q3", value: 345 },
+          { date: "2026-Q4", value: 370 },
         ],
 
         previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
-          { date: "2026-Q4", value: 570 },
+          { date: "2025-Q2", value: 278 },
+          { date: "2025-Q3", value: 285 },
+          { date: "2025-Q4", value: 295 },
+          { date: "2026-Q1", value: 305 },
+          { date: "2026-Q2", value: 315 },
+          { date: "2026-Q3", value: 325 },
+          { date: "2026-Q4", value: 390 },
         ],
       },
     },
@@ -1753,6 +1782,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1818,6 +1848,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1883,6 +1914,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -1948,6 +1980,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2013,6 +2046,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2078,6 +2112,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2126,6 +2161,16 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
       },
 
       forecast: {
+        previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
+          { date: "2025-Q3", value: 495 },
+          { date: "2025-Q4", value: 510 },
+          { date: "2026-Q1", value: 520 },
+          { date: "2026-Q2", value: 535 },
+          { date: "2026-Q3", value: 545 },
+          { date: "2026-Q4", value: 570 },
+        ],
+
         aiForecast: [
           { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
           { date: "2025-Q4", value: 520 },
@@ -2141,15 +2186,6 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
           { date: "2026-Q1", value: 540 },
           { date: "2026-Q2", value: 555 },
           { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
-        ],
-
-        previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
           { date: "2026-Q4", value: 570 },
         ],
       },
@@ -2210,6 +2246,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -2275,6 +2312,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2340,6 +2378,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -2405,6 +2444,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2470,6 +2510,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -2535,6 +2576,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -2600,6 +2642,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2632,7 +2675,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
           { date: "2024-Q1", value: 405 },
           { date: "2024-Q2", value: 418 },
           { date: "2024-Q3", value: 430 },
-          { date: "2024-Q4", value: 445 },
+          { date: "2024-Q4", value: 405 },
           { date: "2025-Q1", value: 460 },
           { date: "2025-Q2", value: 475 },
         ],
@@ -2649,10 +2692,10 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
+          { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
           { date: "2025-Q4", value: 520 },
           { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
+          { date: "2026-Q2", value: 500 },
           { date: "2026-Q3", value: 560 },
           { date: "2026-Q4", value: 570 },
         ],
@@ -2667,6 +2710,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2732,6 +2776,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -2797,6 +2842,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2862,6 +2908,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2927,6 +2974,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -2992,6 +3040,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3057,6 +3106,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3122,6 +3172,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3170,6 +3221,16 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
       },
 
       forecast: {
+        previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
+          { date: "2025-Q3", value: 495 },
+          { date: "2025-Q4", value: 510 },
+          { date: "2026-Q1", value: 520 },
+          { date: "2026-Q2", value: 535 },
+          { date: "2026-Q3", value: 545 },
+          { date: "2026-Q4", value: 570 },
+        ],
+
         aiForecast: [
           { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
           { date: "2025-Q4", value: 520 },
@@ -3185,15 +3246,6 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
           { date: "2026-Q1", value: 540 },
           { date: "2026-Q2", value: 555 },
           { date: "2026-Q3", value: 570 },
-          { date: "2026-Q4", value: 570 },
-        ],
-
-        previousQuarterFinalForecast: [
-          { date: "2025-Q3", value: 495 },
-          { date: "2025-Q4", value: 510 },
-          { date: "2026-Q1", value: 520 },
-          { date: "2026-Q2", value: 535 },
-          { date: "2026-Q3", value: 545 },
           { date: "2026-Q4", value: 570 },
         ],
       },
@@ -3254,6 +3306,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -3319,6 +3372,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3384,6 +3438,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -3449,6 +3504,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3514,6 +3570,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -3579,6 +3636,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -3644,6 +3702,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3676,7 +3735,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
           { date: "2024-Q1", value: 405 },
           { date: "2024-Q2", value: 418 },
           { date: "2024-Q3", value: 430 },
-          { date: "2024-Q4", value: 445 },
+          { date: "2024-Q4", value: 405 },
           { date: "2025-Q1", value: 460 },
           { date: "2025-Q2", value: 475 },
         ],
@@ -3693,10 +3752,10 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
 
       forecast: {
         aiForecast: [
-          { date: "2025-Q3", value: 500 },
+          { date: "2025-Q3", value: 500 }, // AI predicted for current quarter
           { date: "2025-Q4", value: 520 },
           { date: "2026-Q1", value: 535 },
-          { date: "2026-Q2", value: 548 },
+          { date: "2026-Q2", value: 500 },
           { date: "2026-Q3", value: 560 },
           { date: "2026-Q4", value: 570 },
         ],
@@ -3711,6 +3770,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3776,6 +3836,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 285 },
           { date: "2025-Q4", value: 295 },
           { date: "2026-Q1", value: 305 },
@@ -3841,6 +3902,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3906,6 +3968,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -3971,6 +4034,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -4036,6 +4100,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -4101,6 +4166,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 278 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },
@@ -4166,6 +4232,7 @@ export const stackDetailsMock: Record<string, Record<string, StackChartData>> = 
         ],
 
         previousQuarterFinalForecast: [
+          { date: "2025-Q2", value: 478 },
           { date: "2025-Q3", value: 495 },
           { date: "2025-Q4", value: 510 },
           { date: "2026-Q1", value: 520 },

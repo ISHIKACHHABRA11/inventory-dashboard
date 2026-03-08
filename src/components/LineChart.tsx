@@ -33,43 +33,35 @@ export default function LineChart({ stack }: LineChartProps) {
   const [showFinal, setShowFinal] = useState(true);
   const [showPrevFinal, setShowPrevFinal] = useState(true);
 
-  const labels = [
+  // Unified timeline: all unique dates from every series, sorted
+  const allDates = new Set<string>([
     ...stack.historical.consumption.map((d) => d.date),
+    ...stack.historical.aiForecast.map((d) => d.date),
+    ...stack.historical.finalForecast.map((d) => d.date),
     ...stack.forecast.aiForecast.map((d) => d.date),
-  ];
+    ...stack.forecast.finalForecast.map((d) => d.date),
+    ...stack.forecast.previousQuarterFinalForecast.map((d) => d.date),
+  ]);
+  const labels = Array.from(allDates).sort();
 
-  const historicalLength = stack.historical.consumption.length;
-  const forecastLength = stack.forecast.aiForecast.length;
+  const valueByDate = <T extends { date: string; value: number }>(
+    arr: T[],
+  ): Record<string, number> =>
+    Object.fromEntries(arr.map((d) => [d.date, d.value]));
 
-  const consumption = [
-    ...stack.historical.consumption.map((d) => d.value),
-    ...new Array(forecastLength).fill(null),
-  ];
+  const consumptionMap = valueByDate(stack.historical.consumption);
+  const aiHistMap = valueByDate(stack.historical.aiForecast);
+  const aiFcMap = valueByDate(stack.forecast.aiForecast);
+  const finalHistMap = valueByDate(stack.historical.finalForecast);
+  const finalFcMap = valueByDate(stack.forecast.finalForecast);
+  const prevFcMap = valueByDate(stack.forecast.previousQuarterFinalForecast);
 
-  const aiHistorical = [
-    ...stack.historical.aiForecast.map((d) => d.value),
-    ...new Array(forecastLength).fill(null),
-  ];
-
-  const aiForecast = [
-    ...new Array(historicalLength).fill(null),
-    ...stack.forecast.aiForecast.map((d) => d.value),
-  ];
-
-  const finalHistorical = [
-    ...stack.historical.finalForecast.map((d) => d.value),
-    ...new Array(forecastLength).fill(null),
-  ];
-
-  const finalForecast = [
-    ...new Array(historicalLength).fill(null),
-    ...stack.forecast.finalForecast.map((d) => d.value),
-  ];
-
-  const prevFinal = [
-    ...new Array(historicalLength).fill(null),
-    ...stack.forecast.previousQuarterFinalForecast.map((d) => d.value),
-  ];
+  const consumption = labels.map((date) => consumptionMap[date] ?? null);
+  const aiHistorical = labels.map((date) => aiHistMap[date] ?? null);
+  const aiForecast = labels.map((date) => aiFcMap[date] ?? null);
+  const finalHistorical = labels.map((date) => finalHistMap[date] ?? null);
+  const finalForecast = labels.map((date) => finalFcMap[date] ?? null);
+  const prevFinal = labels.map((date) => prevFcMap[date] ?? null);
 
   const datasets = [
     ...(showConsumption
@@ -134,22 +126,62 @@ export default function LineChart({ stack }: LineChartProps) {
     datasets,
   };
 
-  const forecastStartLabel = stack.forecast.aiForecast[0].date;
+  // Last historical quarter (Q2) = last consumption date; forecast starts at Q3
+  const lastHistoricalDate =
+    stack.historical.consumption.length > 0
+      ? stack.historical.consumption[stack.historical.consumption.length - 1]
+          .date
+      : null;
+  const firstForecastDates = [
+    stack.forecast.aiForecast[0]?.date,
+    stack.forecast.finalForecast[0]?.date,
+    stack.forecast.previousQuarterFinalForecast[0]?.date,
+  ].filter(Boolean) as string[];
+  // First forecast quarter (Q3) = earliest forecast date that is after last historical (Q2)
+  const forecastDatesAfterHistorical =
+    lastHistoricalDate != null
+      ? firstForecastDates.filter((d) => d > lastHistoricalDate).sort()
+      : firstForecastDates.sort();
+  const firstForecastDate =
+    forecastDatesAfterHistorical.length > 0
+      ? forecastDatesAfterHistorical[0]
+      : firstForecastDates.sort()[0] ?? null;
+  const firstForecastIndex =
+    firstForecastDate != null ? labels.indexOf(firstForecastDate) : -1;
+  // Place vertical line at center between Q2 (last historical) and Q3 (first forecast)
+  const forecastBoundaryX =
+    firstForecastIndex > 0 ? firstForecastIndex - 0.5 : null;
 
   const options = {
     responsive: true,
+    scales: {
+      x: {
+        grid: {
+          display: true,
+          color: "rgba(20, 55, 45, 0.85)",
+          drawTicks: true,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
+      },
+    },
     plugins: {
       legend: { display: false },
       annotation: {
         annotations: {
-          forecastLine: {
-            type: "line" as const,
-            xMin: forecastStartLabel,
-            xMax: forecastStartLabel,
-            borderColor: "#999",
-            borderWidth: 2,
-            borderDash: [6, 6],
-          },
+          ...(forecastBoundaryX != null && {
+            forecastBoundary: {
+              type: "line" as const,
+              xMin: forecastBoundaryX,
+              xMax: forecastBoundaryX,
+              borderColor: "#999",
+              borderWidth: 2,
+              borderDash: [6, 6],
+            },
+          }),
         },
       },
     },
