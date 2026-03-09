@@ -1,5 +1,5 @@
 import { Box, Switch, Typography } from "@mui/material";
-import { useState, useId } from "react";
+import { useId, useState } from "react";
 import { Line } from "react-chartjs-2";
 import type { StackChartData } from "../types/cities";
 
@@ -14,8 +14,6 @@ export default function LineChart({ stack }: LineChartProps) {
   const [showFinal, setShowFinal] = useState(true);
   const [showPrevFinal, setShowPrevFinal] = useState(true);
 
-  console.log('stack in ', stack);
-
   // Unified timeline: all unique dates from every series, sorted
   // unique x coordinates 
   const allDates = new Set<string>([
@@ -26,9 +24,7 @@ export default function LineChart({ stack }: LineChartProps) {
     ...stack.forecast.finalForecast.map((d) => d.date),
     ...stack.forecast.previousQuarterFinalForecast.map((d) => d.date),
   ]);
-
-  console.log('allDates', allDates);
-  const labels = Array.from(allDates).sort(); //converted set to array
+  const labels = Array.from(allDates);
 
   const valueByDate = <T extends { date: string; value: number }>(
     arr: T[],
@@ -112,33 +108,14 @@ export default function LineChart({ stack }: LineChartProps) {
     datasets,
   };
 
-  // Last historical quarter (Q2) = last consumption date; forecast starts at Q3
-  const lastHistoricalDate =
-    stack.historical.consumption.length > 0
-      ? stack.historical.consumption[stack.historical.consumption.length - 1]
-          .date
-      : null;
-  const firstForecastDates = [
-    stack.forecast.aiForecast[0]?.date,
-    stack.forecast.finalForecast[0]?.date,
-    stack.forecast.previousQuarterFinalForecast[0]?.date,
-  ].filter(Boolean) as string[];
-  
-  // First forecast quarter (Q3) = earliest forecast date that is after last historical (Q2)
-  const forecastDatesAfterHistorical =
-    lastHistoricalDate != null
-      ? firstForecastDates.filter((d) => d > lastHistoricalDate).sort()
-      : firstForecastDates.sort();
-  const firstForecastDate =
-    forecastDatesAfterHistorical.length > 0
-      ? forecastDatesAfterHistorical[0]
-      : firstForecastDates.sort()[0] ?? null;
+  const firstForecastDate = stack.forecast.finalForecast[0]?.date;
+
   const firstForecastIndex =
-    firstForecastDate != null ? labels.indexOf(firstForecastDate) : -1;
+  firstForecastDate != null ? labels.indexOf(firstForecastDate) : -1;
   // Place vertical line at center between Q2 (last historical) and Q3 (first forecast)
   const forecastBoundaryX =
     firstForecastIndex > 0 ? firstForecastIndex - 0.5 : null;
-
+    
   const options = {
     responsive: true,
     scales: {
@@ -146,7 +123,6 @@ export default function LineChart({ stack }: LineChartProps) {
         grid: {
           display: true,
           color: "rgba(20, 55, 45, 0.85)",
-          drawTicks: true,
         },
       },
       y: {

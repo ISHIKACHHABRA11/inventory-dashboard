@@ -23,10 +23,6 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
 
   const labels = allDates;
 
-  // 2. Get last historical point
-  const lastHistoryDate = history[history.length - 1]?.date;
-  const lastHistoryValue = history[history.length - 1]?.value;
-
   // 3. Map history data
   const historyData = allDates.map((date) => {
     const found = history.find((item) => item.date === date);
@@ -35,8 +31,6 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
 
   // 4. Map forecast data
   const forecastData = allDates.map((date) => {
-    if (date === lastHistoryDate) return lastHistoryValue;
-
     const found = forecast.find((item) => item.date === date);
     return found ? found.value : null;
   });
@@ -69,10 +63,6 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    interaction: {
-      mode: "index" as const,
-      intersect: false,
-    },
     scales: {
       x: {
         grid: { display: false },
@@ -93,7 +83,6 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
       style={{
         width: "100%",
         height: 50,
-        position: "relative",
       }}
     >
       <Line key={chartId} data={data} options={options} style={{ width: "100%" }} />

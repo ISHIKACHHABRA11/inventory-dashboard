@@ -41,7 +41,6 @@ export default function Sidebar({
 }: SidebarProps) {
   const navigate = useNavigate();
   const handleToggle = () => onExpandedChange(!expanded);
-  console.log('stacks', stacks);
   const width = expanded ? SIDEBAR_WIDTH_EXPANDED : SIDEBAR_WIDTH_COLLAPSED;
 
   return (
@@ -90,9 +89,7 @@ export default function Sidebar({
           </Typography>
 
           <Box sx={{ overflowY: "auto", flex: 1, px: 2, pb: 2 }}>
-            {stacks.map((stack) => {
-              console.log('stack', stack);
-              return(
+            {stacks.map((stack) => (
               <Card
                 key={stack.stackID}
                 sx={{
@@ -154,7 +151,7 @@ export default function Sidebar({
                   </Typography>
                 </CardContent>
               </Card>
-            )})}
+            ))}
           </Box>
         </>
       )}

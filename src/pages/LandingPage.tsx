@@ -1,11 +1,11 @@
-import { Box, Typography } from "@mui/material";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import MapContainer from "../components/MapContainer";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import InfoOutlineIcon from "@mui/icons-material/InfoOutline";
+import { Box, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import MapContainer from "../components/MapContainer";
 import { MetricLineChart } from "../components/MetricLineChart";
 import { cities } from "../data/mockCities";
-import { useNavigate } from "react-router-dom";
 import type { Metrics } from "../types/cities";
 
 function LandingPage() {
@@ -24,10 +24,10 @@ function LandingPage() {
         mt: 8,
       }}
     >
+      
       <MapContainer />
-
       {/* Overlay above map; pointer-events none so map gets zoom/pan; header & cards have pointer-events auto */}
-      <Box sx={{ position: "absolute", top: 0, width: "100%", p: 6, zIndex: 1, pointerEvents: "none" }}>
+      <Box sx={{ position: "relative", top: 0, width: "100%", p: 6, zIndex: 1, pointerEvents: "none" }}>
         {/* Header */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 3, pointerEvents: "auto" }}>
           <Typography variant="h3" sx={{ color: "white" }}>
