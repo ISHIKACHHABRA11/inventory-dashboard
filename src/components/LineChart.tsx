@@ -1,39 +1,23 @@
-import { useState } from "react";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
-import { Line } from "react-chartjs-2";
 import { Box, Switch, Typography } from "@mui/material";
-import annotationPlugin from "chartjs-plugin-annotation";
+import { useState, useId } from "react";
+import { Line } from "react-chartjs-2";
 import type { StackChartData } from "../types/cities";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-  annotationPlugin,
-);
 
 export interface LineChartProps {
   stack: StackChartData;
 }
 
 export default function LineChart({ stack }: LineChartProps) {
+  const chartId = useId();
   const [showConsumption, setShowConsumption] = useState(true);
   const [showAI, setShowAI] = useState(true);
   const [showFinal, setShowFinal] = useState(true);
   const [showPrevFinal, setShowPrevFinal] = useState(true);
 
+  console.log('stack in ', stack);
+
   // Unified timeline: all unique dates from every series, sorted
+  // unique x coordinates 
   const allDates = new Set<string>([
     ...stack.historical.consumption.map((d) => d.date),
     ...stack.historical.aiForecast.map((d) => d.date),
@@ -42,7 +26,9 @@ export default function LineChart({ stack }: LineChartProps) {
     ...stack.forecast.finalForecast.map((d) => d.date),
     ...stack.forecast.previousQuarterFinalForecast.map((d) => d.date),
   ]);
-  const labels = Array.from(allDates).sort();
+
+  console.log('allDates', allDates);
+  const labels = Array.from(allDates).sort(); //converted set to array
 
   const valueByDate = <T extends { date: string; value: number }>(
     arr: T[],
@@ -137,6 +123,7 @@ export default function LineChart({ stack }: LineChartProps) {
     stack.forecast.finalForecast[0]?.date,
     stack.forecast.previousQuarterFinalForecast[0]?.date,
   ].filter(Boolean) as string[];
+  
   // First forecast quarter (Q3) = earliest forecast date that is after last historical (Q2)
   const forecastDatesAfterHistorical =
     lastHistoricalDate != null
@@ -215,7 +202,7 @@ export default function LineChart({ stack }: LineChartProps) {
   ];
 
   return (
-    <Box sx={{ background: "#000", p: 3, borderRadius: 2 }}>
+    <Box sx={{ background: "#000", p: 3}}>
       <Box
         sx={{
           display: "flex",
@@ -250,7 +237,7 @@ export default function LineChart({ stack }: LineChartProps) {
         ))}
       </Box>
 
-      <Line data={data} options={options} />
+      <Line key={chartId} data={data} options={options} />
     </Box>
   );
 }

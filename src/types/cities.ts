@@ -3,11 +3,7 @@ export interface DataPoint {
   value: number;
 }
 
-export interface MetricHistorical {
-  aiForecast: DataPoint[];
-}
-
-export interface MetricForecast {
+export interface MetricSeries {
   aiForecast: DataPoint[];
 }
 
@@ -15,8 +11,8 @@ export interface Metric {
   value: number;
   unit: string;
   trend: "up" | "down";
-  historical: MetricHistorical;
-  forecast: MetricForecast;
+  historical: MetricSeries;
+  forecast: MetricSeries;
 }
 
 export interface Metrics {

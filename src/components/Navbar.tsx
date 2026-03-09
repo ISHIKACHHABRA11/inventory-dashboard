@@ -1,7 +1,7 @@
-import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import PublicIcon from "@mui/icons-material/Public";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -34,9 +34,9 @@ function Navbar() {
         >
           {/* LEFT */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <IconButton size="small" color="inherit">
-              <MenuIcon />
-            </IconButton>
+            <Button color="inherit" variant="text" size="small" sx={{ minWidth: 0, px: 1 }}>
+              <MenuIcon fontSize="small" />
+            </Button>
 
             <Typography
               variant="h6"

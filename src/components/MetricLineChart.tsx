@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { Line } from "react-chartjs-2";
 import type { City, Metrics } from "../types/cities";
 
@@ -7,6 +8,7 @@ export interface MetricLineChartProps {
 }
 
 export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) => {
+  const chartId = useId();
   const metric = cityData.metrics[metricName];
 
   // extract correct arrays from new structure
@@ -94,7 +96,7 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
         position: "relative",
       }}
     >
-      <Line data={data} options={options} style={{ width: "100%" }} />
+      <Line key={chartId} data={data} options={options} style={{ width: "100%" }} />
     </div>
   );
 };

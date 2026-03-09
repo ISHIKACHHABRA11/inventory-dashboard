@@ -1,20 +1,21 @@
-import { useParams } from "react-router-dom";
-import Sidebar, {
-  SIDEBAR_WIDTH_COLLAPSED,
-  SIDEBAR_WIDTH_EXPANDED,
-} from "../components/Sidebar";
-import { stackDetailsMock } from "../data/stackDetailsMock";
-import { sidebarData } from "../data/mockSidebarData";
-import { useState } from "react";
-import LineChart from "../components/LineChart";
 import {
   Box,
-  Typography,
   Table,
   TableBody,
-  TableRow,
   TableCell,
+  TableRow,
+  Typography,
 } from "@mui/material";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import {
+  SIDEBAR_WIDTH_COLLAPSED,
+  SIDEBAR_WIDTH_EXPANDED,
+} from "../constants/layout";
+import LineChart from "../components/LineChart";
+import Sidebar from "../components/Sidebar";
+import { sidebarData } from "../data/mockSidebarData";
+import { stackDetailsMock } from "../data/stackDetailsMock";
 import type { SidebarStackItem, StackChartData } from "../types/cities";
 
 export default function DetailsPage() {
@@ -22,7 +23,7 @@ export default function DetailsPage() {
 
   const fetchedData = id ? (sidebarData[id] ?? []) : [];
   const [selectedStack, setSelectedStack] = useState<SidebarStackItem | null>(
-    fetchedData[0] ?? null,
+    fetchedData[0] ?? null
   );
   const [sidebarExpanded, setSidebarExpanded] = useState(true);
 
@@ -32,11 +33,17 @@ export default function DetailsPage() {
       : null;
 
   // TABLE DATA
+  let quarters: string[] = [];
   let consumption: (number | string)[] = [];
   let aiForecast: number[] = [];
   let finalForecast: number[] = [];
 
   if (stackChartData) {
+    quarters = [
+      ...stackChartData.historical.consumption.map((d) => d.date),
+      ...stackChartData.forecast.aiForecast.map((d) => d.date),
+    ];
+
     consumption = [
       ...stackChartData.historical.consumption.map((d) => d.value),
       ...new Array(stackChartData.forecast.aiForecast.length).fill("-"),
@@ -53,9 +60,7 @@ export default function DetailsPage() {
     ];
   }
 
-  const sidebarWidth = sidebarExpanded
-    ? SIDEBAR_WIDTH_EXPANDED
-    : SIDEBAR_WIDTH_COLLAPSED;
+  const sidebarWidth = sidebarExpanded ? SIDEBAR_WIDTH_EXPANDED : SIDEBAR_WIDTH_COLLAPSED;
 
   return (
     <div style={{ marginTop: "64px" }}>
@@ -66,12 +71,7 @@ export default function DetailsPage() {
         onExpandedChange={setSidebarExpanded}
       />
 
-      <div
-        style={{
-          marginLeft: sidebarWidth,
-          transition: "margin-left 0.25s ease-in-out",
-        }}
-      >
+      <div style={{ marginLeft: sidebarWidth, transition: "margin-left 0.25s ease-in-out" }}>
         {selectedStack && stackChartData && (
           <>
             {/* HEADER */}
@@ -118,6 +118,20 @@ export default function DetailsPage() {
             <Box sx={{ px: 3, bgcolor: "#144E5E" }}>
               <Table>
                 <TableBody>
+                  {/* Quarter headers */}
+                  <TableRow>
+                    <TableCell sx={{ color: "white", fontWeight: "bold" }}>
+                      Quarter
+                    </TableCell>
+                    {quarters.map((q, i) => (
+                      <TableCell
+                        key={`quarter-${q}-${i}`}
+                        sx={{ color: "#cfd8dc", textAlign: "right" }}
+                      >
+                        {q}
+                      </TableCell>
+                    ))}
+                  </TableRow>
                   {/* AI Forecast */}
                   <TableRow>
                     <TableCell sx={{ color: "white", fontWeight: "bold" }}>

@@ -1,55 +1,51 @@
-import { useState } from "react";
+// MUI layout and UI primitives
 import {
   Box,
-  Typography,
-  IconButton,
   Card,
   CardContent,
   Chip,
+  IconButton,
   Stack,
+  Typography,
 } from "@mui/material";
+// Icons: back navigation
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+// Icons: trend up/down for forecast chips
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+// Icons: collapse/expand sidebar
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+// Programmatic navigation (e.g. back button)
 import { useNavigate } from "react-router-dom";
+// Type for each stack item shown in the sidebar
 import type { SidebarStackItem } from "../types/cities";
+import {
+  SIDEBAR_WIDTH_COLLAPSED,
+  SIDEBAR_WIDTH_EXPANDED,
+} from "../constants/layout";
 
-export const SIDEBAR_WIDTH_EXPANDED = 320;
-export const SIDEBAR_WIDTH_COLLAPSED = 56;
-
+// Props: data + callbacks; expand state is always controlled by parent
 export interface SidebarProps {
   stacks: SidebarStackItem[];
   setSelectedStack: (stack: SidebarStackItem) => void;
-  expanded?: boolean;
-  onExpandedChange?: (expanded: boolean) => void;
+  expanded: boolean;
+  onExpandedChange: (expanded: boolean) => void;
 }
 
 export default function Sidebar({
   stacks,
   setSelectedStack,
-  expanded: controlledExpanded,
+  expanded,
   onExpandedChange,
 }: SidebarProps) {
   const navigate = useNavigate();
-  const [internalExpanded, setInternalExpanded] = useState(true);
-
-  const isControlled = controlledExpanded !== undefined;
-  const expanded = isControlled ? controlledExpanded : internalExpanded;
-
-  const handleToggle = () => {
-    const next = !expanded;
-    if (isControlled && onExpandedChange) {
-      onExpandedChange(next);
-    } else {
-      setInternalExpanded(next);
-    }
-  };
-
+  const handleToggle = () => onExpandedChange(!expanded);
+  console.log('stacks', stacks);
   const width = expanded ? SIDEBAR_WIDTH_EXPANDED : SIDEBAR_WIDTH_COLLAPSED;
 
   return (
+    // Fixed left sidebar: full height below 64px navbar, teal gradient, animated width
     <Box
       sx={{
         width,
@@ -65,10 +61,10 @@ export default function Sidebar({
         display: "flex",
         flexDirection: "column",
         transition: "width 0.25s ease-in-out",
-        overflow: "visible",
+        overflow:"visible",  // default property (others are hidden,auto)
       }}
     >
-      {/* Header - when expanded */}
+      {/* Header - when expanded: back button row */}
       {expanded && (
         <Box
           sx={{
@@ -86,6 +82,7 @@ export default function Sidebar({
         </Box>
       )}
 
+      {/* When expanded: title + scrollable list of stack cards */}
       {expanded && (
         <>
           <Typography variant="h6" sx={{ px: 2, pt: 2, pb: 1 }}>
@@ -93,7 +90,9 @@ export default function Sidebar({
           </Typography>
 
           <Box sx={{ overflowY: "auto", flex: 1, px: 2, pb: 2 }}>
-            {stacks.map((stack) => (
+            {stacks.map((stack) => {
+              console.log('stack', stack);
+              return(
               <Card
                 key={stack.stackID}
                 sx={{
@@ -113,6 +112,7 @@ export default function Sidebar({
                   }}
                 >
                   <Stack direction="row" spacing={1} mb={1}>
+                    {/* Chip: forecast stability — up/down arrow from stack.forecastStab */}
                     <Chip
                       size="small"
                       icon={
@@ -130,6 +130,7 @@ export default function Sidebar({
                       }}
                     />
 
+                    {/* Chip: forecast accuracy — up/down arrow from stack.forecastAcc */}
                     <Chip
                       size="small"
                       icon={
@@ -153,22 +154,9 @@ export default function Sidebar({
                   </Typography>
                 </CardContent>
               </Card>
-            ))}
+            )})}
           </Box>
         </>
-      )}
-
-      {/* Collapsed state: show «-style hint */}
-      {!expanded && (
-        <Box
-          sx={{
-            flex: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            px: 0,
-          }}
-        />
       )}
 
       {/* Toggle button - right edge, vertically centered, extends outward */}
