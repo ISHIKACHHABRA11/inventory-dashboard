@@ -7,23 +7,22 @@ import {
   IconButton,
   Stack,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 // Icons: back navigation
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 // Icons: trend up/down for forecast chips
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-// Icons: collapse/expand sidebar
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 // Programmatic navigation (e.g. back button)
 import { useNavigate } from "react-router-dom";
 // Type for each stack item shown in the sidebar
-import type { SidebarStackItem } from "../types/cities";
 import {
   SIDEBAR_WIDTH_COLLAPSED,
   SIDEBAR_WIDTH_EXPANDED,
 } from "../constants/layout";
+import type { SidebarStackItem } from "../types/cities";
 
 // Props: data + callbacks; expand state is always controlled by parent
 export interface SidebarProps {
@@ -40,17 +39,26 @@ export default function Sidebar({
   onExpandedChange,
 }: SidebarProps) {
   const navigate = useNavigate();
-  const handleToggle = () => onExpandedChange(!expanded);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const width = expanded ? SIDEBAR_WIDTH_EXPANDED : SIDEBAR_WIDTH_COLLAPSED;
 
+  const handleStackSelect = (stack: SidebarStackItem) => {
+    setSelectedStack(stack);
+    if (isMobile) onExpandedChange(false);
+  };
+
   return (
-    // Fixed left sidebar: full height below 64px navbar, teal gradient, animated width
+    // Fixed left sidebar: full height below 64px navbar, teal gradient, animated width; full screen on mobile when expanded
     <Box
       sx={{
-        width,
-        minWidth: width,
-        height: "calc(100vh - 64px)",
-        marginTop: "64px",
+        width: { xs: expanded ? "100vw" : 0, sm: width },
+        minWidth: { xs: expanded ? "100vw" : 0, sm: width },
+        height: {
+          xs: expanded ? "100vh" : "calc(100vh - 64px)",
+          sm: "calc(100vh - 64px)",
+        },
+        marginTop: { xs: expanded ? 0 : 4, sm: 8 },
         background: "linear-gradient(180deg,#0b2c35,#0d3b46)",
         color: "white",
         position: "fixed",
@@ -60,7 +68,7 @@ export default function Sidebar({
         display: "flex",
         flexDirection: "column",
         transition: "width 0.25s ease-in-out",
-        overflow:"visible",  // default property (others are hidden,auto)
+        overflow: { xs: "auto", sm: "visible" },
       }}
     >
       {/* Header - when expanded: back button row */}
@@ -99,7 +107,7 @@ export default function Sidebar({
                   cursor: "pointer",
                   "&:hover": { backgroundColor: "#16697a" },
                 }}
-                onClick={() => setSelectedStack(stack)}
+                onClick={() => handleStackSelect(stack)}
               >
                 <CardContent
                   sx={{
@@ -155,34 +163,6 @@ export default function Sidebar({
           </Box>
         </>
       )}
-
-      {/* Toggle button - right edge, vertically centered, extends outward */}
-      <IconButton
-        onClick={handleToggle}
-        aria-label={expanded ? "Collapse sidebar" : "Expand sidebar"}
-        sx={{
-          position: "absolute",
-          right: 0,
-          top: "50%",
-          transform: "translate(50%, -50%)",
-          width: 40,
-          height: 48,
-          backgroundColor: "#5ba3b3",
-          color: "white",
-          borderRadius: "6px 0 0 6px",
-          boxShadow: "0 1px 4px rgba(0,0,0,0.2)",
-          zIndex: 1,
-          "&:hover": {
-            backgroundColor: "#6eb5c4",
-          },
-        }}
-      >
-        {expanded ? (
-          <KeyboardDoubleArrowLeftIcon />
-        ) : (
-          <KeyboardDoubleArrowRightIcon />
-        )}
-      </IconButton>
     </Box>
   );
 }

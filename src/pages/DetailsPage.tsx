@@ -8,12 +8,13 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import LineChart from "../components/LineChart";
+import Sidebar from "../components/Sidebar";
 import {
   SIDEBAR_WIDTH_COLLAPSED,
   SIDEBAR_WIDTH_EXPANDED,
 } from "../constants/layout";
-import LineChart from "../components/LineChart";
-import Sidebar from "../components/Sidebar";
+import { useSidebar } from "../context/SidebarContext";
 import { sidebarData } from "../data/mockSidebarData";
 import { stackDetailsMock } from "../data/stackDetailsMock";
 import type { SidebarStackItem, StackChartData } from "../types/cities";
@@ -25,7 +26,9 @@ export default function DetailsPage() {
   const [selectedStack, setSelectedStack] = useState<SidebarStackItem | null>(
     fetchedData[0] ?? null
   );
-  const [sidebarExpanded, setSidebarExpanded] = useState(true);
+  const sidebar = useSidebar();
+  const sidebarExpanded = sidebar?.open ?? true;
+  const setSidebarExpanded = sidebar?.setOpen ?? (() => {});
 
   const stackChartData: StackChartData | null =
     id && selectedStack
@@ -63,7 +66,8 @@ export default function DetailsPage() {
   const sidebarWidth = sidebarExpanded ? SIDEBAR_WIDTH_EXPANDED : SIDEBAR_WIDTH_COLLAPSED;
 
   return (
-    <div style={{ marginTop: "64px" }}>
+    <Box sx={{ marginTop: {xs: 4, sm: 8}, display:{xs: "flex", sm: "block"}, flexDirection: {xs: "column"}, 
+          minHeight: {xs: '100vh'}}}>
       <Sidebar
         stacks={fetchedData}
         setSelectedStack={setSelectedStack}
@@ -71,7 +75,9 @@ export default function DetailsPage() {
         onExpandedChange={setSidebarExpanded}
       />
 
-      <div style={{ marginLeft: sidebarWidth, transition: "margin-left 0.25s ease-in-out" }}>
+      <Box sx={{ marginLeft: {xs: 0, sm: sidebarWidth}, transition: "margin-left 0.25s ease-in-out" , 
+      display:{xs: "flex", sm: "block"}, 
+      flexDirection: {xs: "column"}, flex:{xs: 1, sm: 0}}}>
         {selectedStack && stackChartData && (
           <>
             {/* HEADER */}
@@ -80,9 +86,13 @@ export default function DetailsPage() {
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
-                  alignItems: "center",
+                  alignItems: {xs: "flex-start", sm: "center"},
+                  flexDirection: {xs: "column", sm: "row"},
+                  gap:{xs: 2, sm: 0},
+                  padding:{xs: 2, sm: 0},
                 }}
               >
+                <Box sx={{display: "flex", flexDirection: {xs: "column", sm: "row"}, gap: 2}}>
                 <Typography sx={{ color: "white" }}>
                   {selectedStack.stackName}
                 </Typography>
@@ -90,6 +100,7 @@ export default function DetailsPage() {
                 <Typography sx={{ color: "white" }}>
                   Stack Id : {selectedStack.stackID}
                 </Typography>
+                </Box>
 
                 <Box
                   sx={{
@@ -112,10 +123,11 @@ export default function DetailsPage() {
             </Box>
 
             {/* CHART */}
+            <Box sx={{display:"flex",flexDirection: "column", flex:{xs:1, sm: 0}}}>
             <LineChart stack={stackChartData} />
 
             {/* TABLE */}
-            <Box sx={{ px: 3, bgcolor: "#144E5E" }}>
+            <Box sx={{ px: 3, bgcolor: "#144E5E", overflowX: "auto" , flex:{xs:2, sm: 0}}}>
               <Table>
                 <TableBody>
                   {/* Quarter headers */}
@@ -179,9 +191,10 @@ export default function DetailsPage() {
                 </TableBody>
               </Table>
             </Box>
+            </Box>
           </>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

@@ -2,10 +2,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import PublicIcon from "@mui/icons-material/Public";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSidebar } from "../context/SidebarContext";
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const sidebar = useSidebar();
+  const isDetailsPage = /^\/city\/[^/]+$/.test(location.pathname);
 
   return (
     <AppBar
@@ -34,9 +38,18 @@ function Navbar() {
         >
           {/* LEFT */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Button color="inherit" variant="text" size="small" sx={{ minWidth: 0, px: 1 }}>
-              <MenuIcon fontSize="small" />
-            </Button>
+            {isDetailsPage && sidebar && (
+              <Button
+                color="inherit"
+                variant="text"
+                size="small"
+                sx={{ minWidth: 0, px: 1 }}
+                onClick={sidebar.toggle}
+                aria-label={sidebar.open ? "Close sidebar" : "Open sidebar"}
+              >
+                <MenuIcon fontSize="small" />
+              </Button>
+            )}
 
             <Typography
               variant="h6"

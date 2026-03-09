@@ -115,7 +115,7 @@ export default function LineChart({ stack }: LineChartProps) {
   // Place vertical line at center between Q2 (last historical) and Q3 (first forecast)
   const forecastBoundaryX =
     firstForecastIndex > 0 ? firstForecastIndex - 0.5 : null;
-    
+
   const options = {
     responsive: true,
     scales: {
@@ -178,11 +178,12 @@ export default function LineChart({ stack }: LineChartProps) {
   ];
 
   return (
-    <Box sx={{ background: "#000", p: 3}}>
+    <Box sx={{ background: "#000", p: 3, flex: 1}}>
       <Box
         sx={{
           display: "flex",
-          flexWrap: "wrap",
+          flexWrap: {xs: "nowrap", sm: "wrap"},
+          overflowX: {xs: "auto", sm: "visible"},
           gap: 8,
           mb: 2,
           alignItems: "center",

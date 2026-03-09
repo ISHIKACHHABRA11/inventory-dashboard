@@ -21,7 +21,7 @@ function LandingPage() {
         position: "relative",
         height: "100vh",
         overflow: "hidden",
-        mt: 8,
+        mt: {xs: 4, sm: 8},
       }}
     >
       
@@ -29,7 +29,7 @@ function LandingPage() {
       {/* Overlay above map; pointer-events none so map gets zoom/pan; header & cards have pointer-events auto */}
       <Box sx={{ position: "relative", top: 0, width: "100%", p: 6, zIndex: 1, pointerEvents: "none" }}>
         {/* Header */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 3, pointerEvents: "auto" }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 3, pointerEvents: "auto" , flexDirection: {xs: "column", sm: "row"}}}>
           <Typography variant="h3" sx={{ color: "white" }}>
             Hello User,
           </Typography>
