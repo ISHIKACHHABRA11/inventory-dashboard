@@ -1,4 +1,6 @@
-// MUI layout and UI primitives
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import {
   Box,
   Card,
@@ -10,21 +12,13 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-// Icons: back navigation
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// Icons: trend up/down for forecast chips
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-// Programmatic navigation (e.g. back button)
 import { useNavigate } from "react-router-dom";
-// Type for each stack item shown in the sidebar
 import {
   SIDEBAR_WIDTH_COLLAPSED,
   SIDEBAR_WIDTH_EXPANDED,
 } from "../constants/layout";
 import type { SidebarStackItem } from "../types/cities";
 
-// Props: data + callbacks; expand state is always controlled by parent
 export interface SidebarProps {
   stacks: SidebarStackItem[];
   setSelectedStack: (stack: SidebarStackItem) => void;
@@ -49,7 +43,6 @@ export default function Sidebar({
   };
 
   return (
-    // Fixed left sidebar: full height below 64px navbar, teal gradient, animated width; full screen on mobile when expanded
     <Box
       sx={{
         width: { xs: expanded ? "100vw" : 0, sm: width },
@@ -71,7 +64,7 @@ export default function Sidebar({
         overflow: { xs: "auto", sm: "visible" },
       }}
     >
-      {/* Header - when expanded: back button row */}
+
       {expanded && (
         <Box
           sx={{
@@ -89,7 +82,6 @@ export default function Sidebar({
         </Box>
       )}
 
-      {/* When expanded: title + scrollable list of stack cards */}
       {expanded && (
         <>
           <Typography variant="h6" sx={{ px: 2, pt: 2, pb: 1 }}>
@@ -117,7 +109,6 @@ export default function Sidebar({
                   }}
                 >
                   <Stack direction="row" spacing={1} mb={1}>
-                    {/* Chip: forecast stability — up/down arrow from stack.forecastStab */}
                     <Chip
                       size="small"
                       icon={
@@ -135,7 +126,6 @@ export default function Sidebar({
                       }}
                     />
 
-                    {/* Chip: forecast accuracy — up/down arrow from stack.forecastAcc */}
                     <Chip
                       size="small"
                       icon={

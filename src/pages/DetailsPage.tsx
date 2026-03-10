@@ -35,7 +35,6 @@ export default function DetailsPage() {
       ? (stackDetailsMock[id]?.[selectedStack.stackID] ?? null)
       : null;
 
-  // TABLE DATA
   let quarters: string[] = [];
   let consumption: (number | string)[] = [];
   let aiForecast: number[] = [];
@@ -77,7 +76,7 @@ export default function DetailsPage() {
 
       <Box sx={{ marginLeft: {xs: 0, sm: sidebarWidth}, transition: "margin-left 0.25s ease-in-out" , 
       display:{xs: "flex", sm: "block"}, 
-      flexDirection: {xs: "column"}, flex:{xs: 1, sm: 0}}}>
+      flexDirection: {xs: "column", }, flex:{xs: 1, sm: 0}}}>
         {selectedStack && stackChartData && (
           <>
             {/* HEADER */}

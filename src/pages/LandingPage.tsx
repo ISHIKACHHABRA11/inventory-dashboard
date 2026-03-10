@@ -26,9 +26,7 @@ function LandingPage() {
     >
       
       <MapContainer />
-      {/* Overlay above map; pointer-events none so map gets zoom/pan; header & cards have pointer-events auto */}
       <Box sx={{ position: "relative", top: 0, width: "100%", p: 6, zIndex: 1, pointerEvents: "none" }}>
-        {/* Header */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 3, pointerEvents: "auto" , flexDirection: {xs: "column", sm: "row"}}}>
           <Typography variant="h3" sx={{ color: "white" }}>
             Hello User,
@@ -60,10 +58,6 @@ function LandingPage() {
             mt: 6,
             overflowX: "auto",
             pointerEvents: "auto",
-            // scrollbarWidth: "none",
-            // "&::-webkit-scrollbar": {
-            //   display: "none",
-            // }, // used if not mentioned globally
           }}
         >
           {cities.map((cityData) => (
@@ -80,12 +74,10 @@ function LandingPage() {
                 border: "1px solid rgba(255,255,255,0.2)",
               }}
             >
-              {/* City Name */}
               <Typography variant="h5" sx={{ color: "white", mb: 2 }}>
                 {cityData.city}
               </Typography>
 
-              {/* Metrics */}
               {Object.entries(cityData.metrics).map(([metricName, metric]) => (
                 <Box key={metricName} sx={{ mt: 3 }}>
                   <Typography sx={{ color: "white", opacity: 0.8 }}>

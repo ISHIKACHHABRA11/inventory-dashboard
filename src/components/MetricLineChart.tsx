@@ -11,11 +11,9 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
   const chartId = useId();
   const metric = cityData.metrics[metricName];
 
-  // extract correct arrays from new structure
   const history = metric?.historical?.aiForecast || [];
   const forecast = metric?.forecast?.aiForecast || [];
 
-  // 1. Extract all dates
   const allDates = [
     ...history.map((item) => item.date),
     ...forecast.map((item) => item.date),
@@ -23,13 +21,11 @@ export const MetricLineChart = ({ cityData, metricName }: MetricLineChartProps) 
 
   const labels = allDates;
 
-  // 3. Map history data
   const historyData = allDates.map((date) => {
     const found = history.find((item) => item.date === date);
     return found ? found.value : null;
   });
 
-  // 4. Map forecast data
   const forecastData = allDates.map((date) => {
     const found = forecast.find((item) => item.date === date);
     return found ? found.value : null;

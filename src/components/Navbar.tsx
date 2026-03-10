@@ -2,14 +2,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import PublicIcon from "@mui/icons-material/Public";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useMatch, useNavigate } from "react-router-dom";
 import { useSidebar } from "../context/SidebarContext";
 
 function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
   const sidebar = useSidebar();
-  const isDetailsPage = /^\/city\/[^/]+$/.test(location.pathname);
+  const isDetailsPage = !!useMatch("/city/:id");
 
   return (
     <AppBar

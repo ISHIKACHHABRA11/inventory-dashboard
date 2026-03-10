@@ -1,8 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { SidebarProvider } from "./context/SidebarContext";
-import LandingPage from "./pages/LandingPage";
 import DetailsPage from "./pages/DetailsPage";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
