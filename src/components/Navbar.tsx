@@ -3,11 +3,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import PublicIcon from "@mui/icons-material/Public";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { useMatch, useNavigate } from "react-router-dom";
-import { useSidebar } from "../context/SidebarContext";
+import { useContext } from "react";
+import { SidebarContext } from "../context/SidebarContext";
 
 function Navbar() {
   const navigate = useNavigate();
-  const sidebar = useSidebar();
+  const sidebar = useContext(SidebarContext);
   const isDetailsPage = !!useMatch("/city/:id");
 
   return (

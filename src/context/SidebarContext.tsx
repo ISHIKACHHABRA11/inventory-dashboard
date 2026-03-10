@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useState, type ReactNode } from "react";
 
 interface SidebarContextValue {
   open: boolean;
@@ -6,7 +6,7 @@ interface SidebarContextValue {
   toggle: () => void;
 }
 
-const SidebarContext = createContext<SidebarContextValue | null>(null);
+export const SidebarContext = createContext<SidebarContextValue | null>(null);
 
 export function SidebarProvider({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(true);
@@ -18,7 +18,3 @@ export function SidebarProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useSidebar() {
-  const ctx = useContext(SidebarContext);
-  return ctx;
-}

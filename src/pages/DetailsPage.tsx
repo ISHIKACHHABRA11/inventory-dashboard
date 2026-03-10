@@ -6,7 +6,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import LineChart from "../components/LineChart";
 import Sidebar from "../components/Sidebar";
@@ -14,7 +14,7 @@ import {
   SIDEBAR_WIDTH_COLLAPSED,
   SIDEBAR_WIDTH_EXPANDED,
 } from "../constants/layout";
-import { useSidebar } from "../context/SidebarContext";
+import { SidebarContext } from "../context/SidebarContext";
 import { sidebarData } from "../data/mockSidebarData";
 import { stackDetailsMock } from "../data/stackDetailsMock";
 import type { SidebarStackItem, StackChartData } from "../types/cities";
@@ -26,7 +26,7 @@ export default function DetailsPage() {
   const [selectedStack, setSelectedStack] = useState<SidebarStackItem | null>(
     fetchedData[0] ?? null
   );
-  const sidebar = useSidebar();
+  const sidebar = useContext(SidebarContext);
   const sidebarExpanded = sidebar?.open ?? true;
   const setSidebarExpanded = sidebar?.setOpen ?? (() => {});
 
